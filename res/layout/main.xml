@@ -7,7 +7,18 @@
 <TextView  
     android:layout_width="fill_parent" 
     android:layout_height="wrap_content" 
-    android:text="Hello World, Main"
+    android:text="Enter some text in the box and click the button to hear it!"
     />
+    <EditText
+            android:id="@+id/inputText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:text="@string/speak"
+                android:onClick="speakClicked"
+                android:singleLine="true"/>
 </LinearLayout>
 

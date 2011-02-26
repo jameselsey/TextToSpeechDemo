@@ -10,10 +10,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.view.View;
+import android.widget.EditText;
 
 /**
  * This class demonstrates checking for a TTS engine, and if one is
- * available it will spit out some speak.
+ * available it will spit out some speak based on what is in the
+ * text field.
  */
 public class Main extends Activity implements TextToSpeech.OnInitListener
 {
@@ -38,14 +41,26 @@ public class Main extends Activity implements TextToSpeech.OnInitListener
     }
 
     /**
-     * Executed when a new TTS is instantiated. Some static text is spoken via TTS here.
+     * This method is bound to the speak button so is invoked anytime that is clicked.
+     * @param v View default view.
+     */
+    public void speakClicked(View v)
+    {
+        // grab the contents of the text box.
+        EditText editText = (EditText) findViewById(R.id.inputText);
+
+        mTts.speak(editText.getText().toString(),
+                TextToSpeech.QUEUE_FLUSH,  // Drop all pending entries in the playback queue.
+                null);
+    }
+    /**
+     * Executed when a new TTS is instantiated. We don't do anything here since
+     * our speech is now determine by the button click
      * @param i
      */
     public void onInit(int i)
     {
-        mTts.speak("Hello folks, welcome to my little demo on Text To Speech.",
-                TextToSpeech.QUEUE_FLUSH,  // Drop all pending entries in the playback queue.
-                null);
+
     }
 
 
