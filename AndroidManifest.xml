@@ -3,7 +3,7 @@
       package="com.jameselsey.demo.texttospeechdemo"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:label="TextToSpeechDemo" android:icon="@drawable/icon">
+    <application android:label="TextToSpeechDemo" android:icon="@drawable/icon" android:debuggable="true">
         <activity android:name="Main"
                   android:label="@string/app_name">
             <intent-filter>
